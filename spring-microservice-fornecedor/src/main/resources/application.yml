@@ -1,17 +1,6 @@
 server:
   port: 8081
 
-spring:
-  application:
-    name: 'spring-microservice-fornecedor'
-  datasource:
-    url: jdbc:postgresql://localhost:5432/fornecedor
-    username: postgres
-    password: postgres
-  jpa:
-    hibernate:
-      ddl-auto: create
-
 eureka:
   client:
     register-with-eureka: true
