@@ -1,6 +1,7 @@
 package com.example.joseph.springmicroservicejoseph.controller;
 
 import com.example.joseph.springmicroservicejoseph.dto.PurchaseDTO;
+import com.example.joseph.springmicroservicejoseph.model.Purchase;
 import com.example.joseph.springmicroservicejoseph.service.IPurchaseService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,9 +21,9 @@ public class PurchaseController {
   private IPurchaseService iPurchaseService;
 
   @PostMapping
-  public void makePurchase(@RequestBody PurchaseDTO purchaseDTO) {
+  public Purchase makePurchase(@RequestBody PurchaseDTO purchaseDTO) {
     logger.info("Make Purchase");
-    this.iPurchaseService.makePurchase(purchaseDTO);
+    return this.iPurchaseService.makePurchase(purchaseDTO);
   }
 
 }
