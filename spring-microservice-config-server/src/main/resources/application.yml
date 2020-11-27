@@ -10,3 +10,4 @@ spring:
           search-paths:
             - fornecedor
             - joseph
+            - transportation
