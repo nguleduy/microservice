@@ -4,9 +4,9 @@ import com.example.joseph.springmicroservicetransportation.dto.DeliveryDTO;
 import com.example.joseph.springmicroservicetransportation.dto.VoucherDTO;
 import com.example.joseph.springmicroservicetransportation.service.IDeliveryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -16,7 +16,7 @@ public class DeliveryController {
   @Autowired
   private IDeliveryService deliveryService;
 
-  @RequestMapping(method = RequestMethod.POST)
+  @PostMapping
   public VoucherDTO bookDelivery(@RequestBody DeliveryDTO deliveryDTO) {
     return deliveryService.bookDelivery(deliveryDTO);
   }
