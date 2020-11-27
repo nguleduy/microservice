@@ -9,3 +9,4 @@ spring:
           uri: https://github.com/nguleduy/microservice/tree/main/spring-microservice-config-server-repo
           search-paths:
             - fornecedor
+            - joseph
