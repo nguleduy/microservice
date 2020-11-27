@@ -7,6 +7,7 @@
     <file type="web" url="file://$PROJECT_DIR$/spring-microservice-fornecedor" />
     <file type="web" url="file://$PROJECT_DIR$/spring-microservice-joseph" />
     <file type="web" url="file://$PROJECT_DIR$/spring-microservice-transportation" />
+    <file type="web" url="file://$PROJECT_DIR$/spring-microservice-zuul" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
