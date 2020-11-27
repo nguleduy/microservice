@@ -22,12 +22,14 @@ public class PurchaseService implements IPurchaseService {
 
   @Override
   public Purchase makePurchase(PurchaseDTO purchaseDTO) {
+    final String state = purchaseDTO.getAddress().getState();
 
-    InfoProviderDTO infoProviderByState = this.providerClient.getInfoProviderByState(purchaseDTO.getAddress().getState());
+    logger.info("seeking information from the {} " + state);
+    InfoProviderDTO infoProviderByState = this.providerClient.getInfoProviderByState(state);
+    logger.info("placing an order");
     InfoOrderDTO order = this.providerClient.placeOrder(purchaseDTO.getItems());
 
-    Purchase purchaseSave = new Purchase(order.getId(), order.getPreparationTime(), purchaseDTO.getAddress().toString());
-    logger.info("Address: " + infoProviderByState.getAddress());
+    Purchase purchaseSave = new Purchase(order.getId(), order.getPreparationTime(), infoProviderByState.getAddress().toString());
     logger.info("Purchase: " + purchaseSave);
 
     return purchaseSave;
