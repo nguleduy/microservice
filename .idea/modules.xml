@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/microservice.iml" filepath="$PROJECT_DIR$/.idea/microservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-microservice-boot-admin/spring-microservice-boot-admin.iml" filepath="$PROJECT_DIR$/spring-microservice-boot-admin/spring-microservice-boot-admin.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-microservice-config-server-repo/spring-microservice-config-server-repo.iml" filepath="$PROJECT_DIR$/spring-microservice-config-server-repo/spring-microservice-config-server-repo.iml" />
     </modules>
   </component>
