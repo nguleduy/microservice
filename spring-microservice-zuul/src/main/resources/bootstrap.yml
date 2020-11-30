@@ -1,5 +1,5 @@
 spring:
   application:
-    name: 'zuul'
+    name: 'spring-microservice-zuul'
   profiles:
     active: default
