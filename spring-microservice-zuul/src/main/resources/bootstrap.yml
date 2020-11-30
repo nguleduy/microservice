@@ -3,3 +3,8 @@ spring:
     name: 'spring-microservice-zuul'
   profiles:
     active: default
+  boot:
+    admin:
+      client:
+        url:
+          - http://localhost:8082
