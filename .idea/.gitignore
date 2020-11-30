@@ -6,3 +6,19 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+/dataSources/9211e37f-ff4d-45c6-b762-0aaa0b52dfc4.xml
+/dataSources/d5aacb95-97e1-4950-8804-ee07389b567d.xml
+/dataSources.xml
+/dataSources/f94c3286-a38a-431f-9014-0ca2e36abde2.xml
+/dataSources/9211e37f-ff4d-45c6-b762-0aaa0b52dfc4/storage_v2/_src_/database/fornecedor.ZaEeTg.meta
+/dataSources/9211e37f-ff4d-45c6-b762-0aaa0b52dfc4/storage_v2/_src_/database/fornecedor.ZaEeTg/schema/information_schema.FNRwLQ.meta
+/dataSources/d5aacb95-97e1-4950-8804-ee07389b567d/storage_v2/_src_/database/transportation.bFUDcw/schema/information_schema.FNRwLQ.meta
+/dataSources/f94c3286-a38a-431f-9014-0ca2e36abde2/storage_v2/_src_/database/joseph.j7Izuw/schema/information_schema.FNRwLQ.meta
+/dataSources/f94c3286-a38a-431f-9014-0ca2e36abde2/storage_v2/_src_/database/joseph.j7Izuw.meta
+/dataSources/9211e37f-ff4d-45c6-b762-0aaa0b52dfc4/storage_v2/_src_/database/fornecedor.ZaEeTg/schema/pg_catalog.0S1ZNQ.meta
+/dataSources/d5aacb95-97e1-4950-8804-ee07389b567d/storage_v2/_src_/database/transportation.bFUDcw/schema/pg_catalog.0S1ZNQ.meta
+/dataSources/f94c3286-a38a-431f-9014-0ca2e36abde2/storage_v2/_src_/database/joseph.j7Izuw/schema/pg_catalog.0S1ZNQ.meta
+/dataSources/9211e37f-ff4d-45c6-b762-0aaa0b52dfc4/storage_v2/_src_/database/fornecedor.ZaEeTg/schema/public.abK9xQ.meta
+/dataSources/d5aacb95-97e1-4950-8804-ee07389b567d/storage_v2/_src_/database/transportation.bFUDcw/schema/public.abK9xQ.meta
+/dataSources/f94c3286-a38a-431f-9014-0ca2e36abde2/storage_v2/_src_/database/joseph.j7Izuw/schema/public.abK9xQ.meta
+/dataSources/d5aacb95-97e1-4950-8804-ee07389b567d/storage_v2/_src_/database/transportation.bFUDcw.meta
