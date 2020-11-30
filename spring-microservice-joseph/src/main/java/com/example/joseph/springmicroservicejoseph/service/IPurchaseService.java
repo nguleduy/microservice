@@ -6,4 +6,6 @@ import com.example.joseph.springmicroservicejoseph.model.Purchase;
 public interface IPurchaseService {
 
   public Purchase makePurchase(PurchaseDTO purchaseDTO);
+
+  public Purchase findPurchaseById(Long id);
 }

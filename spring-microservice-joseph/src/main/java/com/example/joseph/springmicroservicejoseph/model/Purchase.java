@@ -5,12 +5,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Data
+@Entity(name = "PurchaseEntity")
+@Table(name = "tbl_purchase")
 public class Purchase {
 
+  @Id
   private Long orderId;
   private Integer preparationTime;
   private String destinationAddress;

@@ -6,6 +6,7 @@ import com.example.joseph.springmicroservicejoseph.dto.InfoOrderDTO;
 import com.example.joseph.springmicroservicejoseph.dto.InfoProviderDTO;
 import com.example.joseph.springmicroservicejoseph.dto.PurchaseDTO;
 import com.example.joseph.springmicroservicejoseph.model.Purchase;
+import com.example.joseph.springmicroservicejoseph.repository.PurchaseRepository;
 import com.example.joseph.springmicroservicejoseph.service.IPurchaseService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;
@@ -21,8 +22,17 @@ public class PurchaseService implements IPurchaseService {
   @Autowired
   private ProviderClient providerClient;
 
+  @Autowired
+  private PurchaseRepository purchaseRepository;
+
   @Override
-  @HystrixCommand(fallbackMethod = "makePurchaseFallback")
+  @HystrixCommand(threadPoolKey = "findPurchaseByIdThreadPool")
+  public Purchase findPurchaseById(Long id) {
+    return this.purchaseRepository.findById(id).orElse(new Purchase());
+  }
+
+  @Override
+  @HystrixCommand(fallbackMethod = "makePurchaseFallback", threadPoolKey = "makePurchaseThreadPool")
   public Purchase makePurchase(PurchaseDTO purchaseDTO) {
     final String state = purchaseDTO.getAddress().getState();
 
@@ -34,9 +44,12 @@ public class PurchaseService implements IPurchaseService {
     Purchase purchaseSave = new Purchase(order.getId(), order.getPreparationTime(), infoProviderByState.getAddress().toString());
     logger.info("Purchase: " + purchaseSave);
 
+    this.purchaseRepository.save(purchaseSave);
+
     return purchaseSave;
   }
 
+  // Method for Fallback and Circuit Braker
   public Purchase makePurchaseFallback(PurchaseDTO purchase) {
     Purchase purchaseFallback = new Purchase();
     purchaseFallback.setDestinationAddress(purchase.getAddress().toString());

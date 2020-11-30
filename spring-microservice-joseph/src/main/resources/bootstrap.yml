@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: 'spring-microservice-joseph'
+  profiles:
+    active:
+      - default
+  cloud:
+    config:
+      url: http://localhost:8888
