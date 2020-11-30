@@ -6,7 +6,8 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/nguleduy/microservice/tree/main/spring-microservice-config-server-repo
+          uri: https://github.com/nguleduy/microservice.git/
+#          uri: https://github.com/nguleduy/microservice/tree/main/spring-microservice-config-server-repo
           search-paths:
             - fornecedor
             - joseph
