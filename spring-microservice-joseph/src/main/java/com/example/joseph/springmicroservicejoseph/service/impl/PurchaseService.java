@@ -1,10 +1,13 @@
 package com.example.joseph.springmicroservicejoseph.service.impl;
 
 import com.example.joseph.springmicroservicejoseph.client.ProviderClient;
+import com.example.joseph.springmicroservicejoseph.client.VoucherClient;
 import com.example.joseph.springmicroservicejoseph.controller.PurchaseController;
+import com.example.joseph.springmicroservicejoseph.dto.InfoDeliveryDTO;
 import com.example.joseph.springmicroservicejoseph.dto.InfoOrderDTO;
 import com.example.joseph.springmicroservicejoseph.dto.InfoProviderDTO;
 import com.example.joseph.springmicroservicejoseph.dto.PurchaseDTO;
+import com.example.joseph.springmicroservicejoseph.dto.VoucherDTO;
 import com.example.joseph.springmicroservicejoseph.model.Purchase;
 import com.example.joseph.springmicroservicejoseph.repository.PurchaseRepository;
 import com.example.joseph.springmicroservicejoseph.service.IPurchaseService;
@@ -14,6 +17,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+
 @Service
 public class PurchaseService implements IPurchaseService {
 
@@ -21,6 +26,9 @@ public class PurchaseService implements IPurchaseService {
 
   @Autowired
   private ProviderClient providerClient;
+
+  @Autowired
+  private VoucherClient voucherClient;
 
   @Autowired
   private PurchaseRepository purchaseRepository;
@@ -38,10 +46,20 @@ public class PurchaseService implements IPurchaseService {
 
     logger.info("seeking information from the {} " + state);
     InfoProviderDTO infoProviderByState = this.providerClient.getInfoProviderByState(state);
+
     logger.info("placing an order");
     InfoOrderDTO order = this.providerClient.placeOrder(purchaseDTO.getItems());
 
-    Purchase purchaseSave = new Purchase(order.getId(), order.getPreparationTime(), infoProviderByState.getAddress().toString());
+    logger.info("generating voucher");
+    InfoDeliveryDTO infoDeliveryDTO = new InfoDeliveryDTO(
+            order.getId(),
+            LocalDate.now().plusDays(order.getPreparationTime()),
+            infoProviderByState.getAddress(),
+            purchaseDTO.getAddress().toString());
+
+    VoucherDTO voucher = this.voucherClient.bookDelivery(infoDeliveryDTO);
+
+    Purchase purchaseSave = new Purchase(order.getId(), order.getPreparationTime(), infoProviderByState.getAddress().toString(), voucher.getDeliveryForecast(), voucher.getNumber());
     logger.info("Purchase: " + purchaseSave);
 
     this.purchaseRepository.save(purchaseSave);
@@ -49,7 +67,7 @@ public class PurchaseService implements IPurchaseService {
     return purchaseSave;
   }
 
-  // Method for Fallback and Circuit Braker
+  // Method for Fallback and Circuit Breaker
   public Purchase makePurchaseFallback(PurchaseDTO purchase) {
     Purchase purchaseFallback = new Purchase();
     purchaseFallback.setDestinationAddress(purchase.getAddress().toString());

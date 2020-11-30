@@ -8,6 +8,7 @@ import lombok.ToString;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,4 +22,6 @@ public class Purchase {
   private Long orderId;
   private Integer preparationTime;
   private String destinationAddress;
+  private LocalDate deliveryDate;
+  private Long voucher;
 }
