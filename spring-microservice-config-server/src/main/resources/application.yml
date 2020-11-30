@@ -6,7 +6,9 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/nguleduy/microservice.git/
+          uri: https://github.com/nguleduy/microservice
+          username: nguleduy@gamil.com
+          password: Thuchan11@52017
           search-paths:
             - fornecedor
             - joseph
