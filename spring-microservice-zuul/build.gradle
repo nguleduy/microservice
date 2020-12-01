@@ -21,7 +21,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-zuul'
-	compile group: 'de.codecentric', name: 'spring-boot-admin-starter-client', version: '2.1.5'
+	compile group: 'de.codecentric', name: 'spring-boot-admin-starter-client', version: '2.2.0'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
