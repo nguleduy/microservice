@@ -1,8 +1,13 @@
 spring:
   application:
-    name: 'transportation'
+    name: 'spring-microservice-transportation'
   profiles:
     active: default
   cloud:
     config:
       uri: http://localhost:8888
+  boot:
+    admin:
+      client:
+        url:
+          - http://localhost:8082
