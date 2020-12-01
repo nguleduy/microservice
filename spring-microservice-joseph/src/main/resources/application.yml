@@ -4,6 +4,21 @@ server:
 spring:
   application:
     name: 'spring-microservice-joseph'
+  boot:
+    admin:
+      client:
+        url:
+          - http://localhost:8082
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
+  endpoint:
+    health:
+      show-details: always
 
 eureka:
   client:
