@@ -1,0 +1,32 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: 'spring-microservice-config-server'
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/nguleduy/microservice
+          username: nguleduy@gamil.com
+          password: { { password } }
+          search-paths:
+            - fornecedor
+            - joseph
+            - transportation
+  boot:
+    admin:
+      client:
+        url:
+          - http://localhost:8082
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
+  endpoint:
+    health:
+      show-details: always
